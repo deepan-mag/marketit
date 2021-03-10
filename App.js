@@ -1,14 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import React, { useState } from 'react'
+import { StyleSheet, Text, TextInput, Switch } from 'react-native'
+import AppPicker from './app/components/AppPicker'
+import AppTextInput from './app/components/AppTextInput'
+import Icon from './app/components/Icon'
+import ListItem from './app/components/ListItem'
+import Screen from './app/components/Screen'
+import AccountScreen from './app/screens/AccountScreen'
+import ListingsScreen from './app/screens/ListingsScreen'
+import MessagesScreen from './app/screens/MessagesScreen'
 
 export default function App() {
+  const [firstName, setFirstName] = useState('')
+  const [isNew, setIsNew] = useState(false)
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <Screen>
+      <AppPicker icon='apps' placeholder='Category' />
+      <AppTextInput icon='email' placeholder='Email' />
+    </Screen>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -18,4 +29,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})
